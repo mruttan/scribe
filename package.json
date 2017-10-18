@@ -1,15 +1,18 @@
 {
   "name": "scribe",
+  "private": true,
   "version": "2.7.0",
   "description": "Admin Theme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "meteor run",
+    "test": "meteor test --driver-package=practicalmeteor:mocha"
   },
   "author": "WebAppLayers",
   "dependencies": {
     "babel-runtime": "^6.20.0",
     "markdown": "^0.5.0",
     "meteor-node-stubs": "~0.2.4",
+    "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-addons-pure-render-mixin": "^15.6.0",
     "react-codemirror": "^1.0.0",
@@ -20,5 +23,8 @@
   },
   "engines": {
     "node": "4.8.4"
+  },
+  "devDependencies": {
+    "expect": "^21.2.1"
   }
 }
