@@ -10,7 +10,7 @@ const PrivateHeader = (props) => {
                 <a id="navbar-minimalize" className="minimalize-styl-2 btn btn-primary " href="#"><i className="fa fa-bars"></i> </a>
             </div>
             <div className="nav navbar-top-links navbar-left">
-                <a>{props.title} TITLE CSS NEEDED</a>
+                <h1>{props.title}</h1>
             </div>
             <ul className="nav navbar-top-links navbar-right">
               <li>
@@ -20,7 +20,7 @@ const PrivateHeader = (props) => {
               </li>
                 <li>
                     <button onClick={() => Accounts.logout()}>
-                        <i className="fa fa-sign-out"></i> Log out
+                        <i className="fa fa-sign-out">Logout</i>
                     </button>
                 </li>
 
