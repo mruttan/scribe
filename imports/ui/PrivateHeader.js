@@ -1,8 +1,9 @@
 import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import PropTypes from 'prop-types';
+import { createContainer } from 'meteor/react-meteor-data';
 
-const PrivateHeader = (props) => {
+export const PrivateHeader = (props) => {
   return (
     <div className="row border-bottom">
         <nav className="navbar navbar-static-top" role="navigation">
@@ -19,7 +20,7 @@ const PrivateHeader = (props) => {
                 </a>
               </li>
                 <li>
-                    <button onClick={() => Accounts.logout()}>
+                    <button onClick={() => props.handleLogout()}>
                         <i className="fa fa-sign-out">Logout</i>
                     </button>
                 </li>
@@ -31,8 +32,19 @@ const PrivateHeader = (props) => {
   );
 }
 
-PrivateHeader.propTypes = {
-	title: PropTypes.string.isRequired
-};
 
-export default PrivateHeader;
+
+PrivateHeader.propTypes = {
+	title: PropTypes.string.isRequired,
+  handleLogout: PropTypes.func.isRequired
+};
+// Think of createContainer functions as Tracker autorun calls,
+// The first argument (a function) supplies what the second argument (a component)
+// will need when it is rendered
+// This function is ran first in this file so that the function handleLogout exists
+// for the button
+export default createContainer(() => {
+	return {
+		handleLogout: () => Accounts.logout()
+	};
+}, PrivateHeader);
