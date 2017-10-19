@@ -33,5 +33,9 @@ if (Meteor.isServer) {
 			}).toThrow();
 		});
 
+		it('should update user');
+		it('should throw error if extra updates provided');
+		it('should not update user if not correct user');
+		it('should not update user if unauthenticated');
 	});
 }
