@@ -5,8 +5,9 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 import { Notes } from '../api/notes';
 import NoteListHeader from './NoteListHeader';
+import NoteListItem from './NoteListItem';
+import NoteListEmptyItem from './NoteListEmptyItem';
 
-// Need to update button css, but everything works!
 export const NoteList = (props) => {
   return (
     <nav className="navbar-default navbar-static-side" role="navigation">
@@ -20,6 +21,7 @@ export const NoteList = (props) => {
                         <a>
                             <span className="clear block m-t-xs"> <strong className="font-bold">
                               <NoteListHeader/>
+
                             </strong></span>
                         </a>
                     </div>
@@ -27,14 +29,12 @@ export const NoteList = (props) => {
                         IN+
                     </div>
                 </li>
-                <li className="">
-                    <a href=""><i className="fa fa-dashboard"></i>
-                    <span className="nav-label">
-                      NoteList { props.notes.length }
-                    </span> </a>
-                </li>
+                { props.notes.length === 0 ? <NoteListEmptyItem/> : undefined }
+                { props.notes.map((note) => {
+                    return <NoteListItem key={note._id} note={note}/>;
+                })}
+                NoteList { props.notes.length }
             </ul>
-
         </div>
     </nav>
   );

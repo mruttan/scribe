@@ -8,7 +8,6 @@ export default () => {
 		<div>
 			<PrivateHeader title="Dashboard"/>
 			<div className="page-content">
-				Dashboard page content.
 				<NoteList/>
 			</div>
 		</div>
