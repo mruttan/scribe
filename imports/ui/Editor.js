@@ -2,29 +2,41 @@ import React from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Session } from 'meteor/session';
 import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 
 import { Notes } from '../api/notes';
 
+
 export class Editor extends React.Component {
+  handleBodyChange(e) {
+    this.props.call('notes.update', this.props.note._id, {
+      body: e.target.value
+    });
+  }
+  handleTitleChange(e) {
+    this.props.call('notes.update', this.props.note._id, {
+      title: e.target.value
+    });
+  }
 	render() {
 		if(this.props.note) {
 			return (
         <div>
           <div className="row wrapper border-bottom white-bg page-heading">
             <div className="col-lg-12">
-                <h2>Title</h2>
+                <h2>
+                  <input value={this.props.note.title} placeholder="Your title here" onChange={this.handleTitleChange.bind(this)}/>
+                </h2>
             </div>
           </div>
           <div className="wrapper wrapper-content animated fadeInRight">
             <div className="row">
                 <div className="col-lg-12">
                     <div className="text-center m-t-lg">
-                        <h1>
-                            We got the note!
-                        </h1>
-                        <small>
-                            It is an application skeleton for a typical Meteor web app. You can use it to quickly bootstrap your webapp projects and dev environment for these projects.
-                        </small>
+                      <p>
+                        <textarea value={this.props.note.body} placeholder="Your note here" onChange={this.handleBodyChange.bind(this)}></textarea>
+                      </p>
+                      <button>Delete Note</button>
                     </div>
                 </div>
             </div>
@@ -68,6 +80,7 @@ export default createContainer(() => {
 
 	return {
 		selectedNoteId,
-		note: Notes.findOne(selectedNoteId)
+		note: Notes.findOne(selectedNoteId),
+    call: Meteor.call
 	};
 }, Editor);
