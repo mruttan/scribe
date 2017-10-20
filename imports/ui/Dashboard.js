@@ -8,7 +8,7 @@ import Footer from './Footer';
 export default () => {
 	return (
 		<div id="wrapper">
-			<PrivateHeader title="Dashboard"/>
+			<PrivateHeader title="Scribe"/>
 			<div className="page-content">
 				<NoteList/>
 				<div id="page-wrapper" className="gray-bg">
