@@ -16,7 +16,7 @@ export const PrivateHeader = (props) => {
             <ul className="nav navbar-top-links navbar-right">
               <li>
                 <a href="#">
-                  Sign Up
+                  Edit Account
                 </a>
               </li>
                 <li>

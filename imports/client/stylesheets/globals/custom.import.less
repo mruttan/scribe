@@ -5,32 +5,34 @@
   }
 }
 
-.boxed-view {
-	align-items: center;
-	background: @boxed-view-overlay-bg;
-	display: flex;
-	justify-content: center;
-	height: 100vh;
-	width: 100vw;
-}
-//lays modal over current page instead of at bottom when applied to a modal
-.boxed-view--modal {
-	background: fade-out(@boxed-view-overlay-bg, .3);
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+
+h1 {
+	font-weight: 300;
+	margin-bottom: @space;
 }
 
-.boxed-view__box {
-	background-color: @boxed-view-bg;
-	padding: 2.4rem;
-	text-align: center;
-	width: 24rem;
+h2 {
+	font-size: @large-font-size;
+	margin-bottom: @space;
 }
 
-.boxed-view__form {
-	display: flex;
-	flex-direction: column;
+p {
+	margin-bottom: @space;
+}
+
+a {
+	color: @body-default-color;
+}
+
+input[type=text], input[type=email], input[type=password], textarea {
+	border: 1px solid @input-border;
+	color: @body-default-color;
+	font-size: @base-font-size;
+	font-family: @body-default-font-family;
+	margin-bottom: @space;
+	padding: @input-spacing;
+}
+
+.navbar {
+  margin-bottom: 0;
 }

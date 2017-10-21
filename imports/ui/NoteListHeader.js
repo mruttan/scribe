@@ -6,7 +6,8 @@ import { createContainer } from 'meteor/react-meteor-data';
 export const NoteListHeader = (props) => {
   return(
     <div>
-      <button onClick={() => {
+      <button className="btn btn-primary"
+        onClick={() => {
         props.meteorCall('notes.insert', (err, res) => {
           if (res) {
             props.Session.set('selectedNoteId', res);
