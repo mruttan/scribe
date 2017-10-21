@@ -55,6 +55,7 @@ export class Editor extends React.Component {
             </div>
           </div>
           <div className="wrapper wrapper-content animated fadeInRight">
+            <div className="editor">
             <div className="row">
                 <div className="col-lg-12">
                     <div className="text-center m-t-lg">
@@ -64,6 +65,7 @@ export class Editor extends React.Component {
                       <button onClick={this.handleRemoval.bind(this)}>Delete Note</button>
                     </div>
                 </div>
+            </div>
             </div>
           </div>
         </div>
