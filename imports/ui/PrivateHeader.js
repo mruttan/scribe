@@ -23,7 +23,8 @@ export const PrivateHeader = (props) => {
                 </a>
               </li>
                 <li>
-                    <button onClick={() => props.handleLogout()}>
+                    <button className="btn btn.primary"
+                      onClick={() => props.handleLogout()}>
                         <i className="fa fa-sign-out">Logout</i>
                     </button>
                 </li>

@@ -62,7 +62,8 @@ export class Editor extends React.Component {
                       <p>
                         <textarea value={this.state.body} placeholder="Your note here" onChange={this.handleBodyChange.bind(this)}></textarea>
                       </p>
-                      <button onClick={this.handleRemoval.bind(this)}>Delete Note</button>
+                      <button className="btn btn.primary"
+                        onClick={this.handleRemoval.bind(this)}>Delete Note</button>
                     </div>
                 </div>
             </div>
