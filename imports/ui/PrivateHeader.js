@@ -6,17 +6,16 @@ import { Session } from 'meteor/session';
 
 export const PrivateHeader = (props) => {
   const navImageSrc = props.isNavOpen ? '/images/x.svg' : '/images/bars.svg' ;
-
   return (
     <div className="row border-bottom">
         <nav className="navbar navbar-static-top" role="navigation">
             <div className="navbar-header">
-    				    <img className="header__nav-toggle" src={navImageSrc} onClick={props.handleNavToggle}/>
-            </div>
-            <div className="nav navbar-top-links navbar-left">
-                <h1>{props.title}</h1>
+              <a id="navbar-minimalize" className="minimalize-styl-2 btn btn-primary " href="#"><i className="fa fa-bars"></i> </a>
             </div>
             <ul className="nav navbar-top-links navbar-right">
+              <li>
+                <h1>{props.title}</h1>
+              </li>
               <li>
                 <a href="#">
                   Edit Account
