@@ -2,22 +2,20 @@ import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Session } from 'meteor/session';
 
 export const PrivateHeader = (props) => {
-  const navImageSrc = props.isNavOpen ? '/images/x.svg' : '/images/bars.svg' ;
   return (
     <div className="row border-bottom">
         <nav className="navbar navbar-static-top" role="navigation">
             <div className="navbar-header">
-              <a id="navbar-minimalize" className="minimalize-styl-2 btn btn-primary " href="#"><i className="fa fa-bars"></i> </a>
+              <a id="navbar-minimalize" className="minimalize-styl-2 btn btn-primary " href="#" onClick={props.handleNavToggle}><i className="fa fa-bars"></i> </a>
             </div>
             <ul className="nav navbar-top-links navbar-right">
               <li>
                 <h1>{props.title}</h1>
               </li>
               <li>
-                <a href="#">
+                <a href="/useredit">
                   Edit Account
                 </a>
               </li>
@@ -40,7 +38,6 @@ export const PrivateHeader = (props) => {
 PrivateHeader.propTypes = {
 	title: PropTypes.string.isRequired,
   handleLogout: PropTypes.func.isRequired,
-  isNavOpen: PropTypes.bool.isRequired,
   handleNavToggle: PropTypes.func.isRequired
 };
 
@@ -52,7 +49,32 @@ PrivateHeader.propTypes = {
 export default createContainer(() => {
 	return {
 		handleLogout: () => Accounts.logout(),
-    handleNavToggle: () => Session.set('isNavOpen', !Session.get('isNavOpen')),
-    isNavOpen: Session.get('isNavOpen')
+    handleNavToggle: function(event) {
+
+        event.preventDefault();
+
+        // Toggle special class
+        $("body").toggleClass("mini-navbar");
+
+        // Enable smoothly hide/show menu
+        if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {
+            // Hide menu in order to smoothly turn on when maximize menu
+            $('#side-menu').hide();
+            // For smoothly turn on menu
+            setTimeout(
+                function () {
+                    $('#side-menu').fadeIn(400);
+                }, 200);
+        } else if ($('body').hasClass('fixed-sidebar')) {
+            $('#side-menu').hide();
+            setTimeout(
+                function () {
+                    $('#side-menu').fadeIn(400);
+                }, 100);
+        } else {
+            // Remove all inline style from jquery fadeIn function to reset menu state
+            $('#side-menu').removeAttr('style');
+        }
+    }
 	};
 }, PrivateHeader);

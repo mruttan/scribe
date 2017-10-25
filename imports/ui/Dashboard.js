@@ -8,15 +8,11 @@ import Footer from './Footer';
 export default () => {
 	return (
 		<div id="wrapper">
-			<div className="page-content">
-				<div className="page-content__sidebar">
-					<NoteList/>
-				</div>
-				<div id="page-wrapper" className="gray-bg page-content__main">
-					<PrivateHeader title="Scribe"/>
-					<Editor/>
-					<Footer/>
-				</div>
+			<NoteList/>
+			<div id="page-wrapper" className="gray-bg">
+				<PrivateHeader title="Scribe"/>
+				<Editor/>
+				<Footer/>
 			</div>
 		</div>
 	);

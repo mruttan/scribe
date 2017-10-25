@@ -7,6 +7,7 @@ import Signup from '../ui/Signup';
 import Dashboard from '../ui/Dashboard';
 import NotFound from '../ui/NotFound';
 import Login from '../ui/Login';
+import UserEdit from '../ui/UserEdit';
 
 const onEnterNotePage = (nextState) => {
 	// Uses nextState object to assign selectedNoteId to Id in url, allowing note to be already selected on page enter/refresh
@@ -45,6 +46,7 @@ export const routes = (
 			<Route path="/signup" component={Signup} privacy="unauth" />
 			<Route path="/dashboard" component={Dashboard} privacy="auth" />
 			<Route path="/dashboard/:id" component={Dashboard} privacy="auth" onEnter={onEnterNotePage} onLeave={onLeaveNotePage}/>
+			<Route path="/useredit" component={UserEdit} privacy="auth" />
 			<Route path="*" component={NotFound}/>
 		</Route>
 	</Router>
