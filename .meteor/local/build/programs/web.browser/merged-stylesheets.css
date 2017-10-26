@@ -11359,6 +11359,12 @@ button.close {
   clip: auto;
 }
 
+@media (min-width: 50rem) {
+  body {
+    background-color: yellow;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -15549,6 +15555,12 @@ body.tour-open .animated {
 .sidebar-container .setings-item {
   padding: 15px 20px;
   border-bottom: 1px solid #e7eaec;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -21776,9 +21788,65 @@ body.md-skin {
   }
 }
 
+h1 {
+  font-weight: 300;
+  margin-bottom: 1.4rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.4rem;
+}
+
+p {
+  margin-bottom: 1.4rem;
+}
+
+a {
+  color: #c2c2c2;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+  border: 1px solid #dddddd;
+  color: #c2c2c2;
+  font-size: 1.4rem;
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 1.4rem;
+  padding: 1rem;
+}
+
+.navbar .navbar-static-top {
+  margin-bottom: 0;
+}
+
+.navbar a {
+  margin-left: 1.4rem;
+}
+
+.editor {
+  background-color: white;
+  border: 1px solid $grey;
+  width: 100%;
+}
+
+.row div p textarea {
+  width: 100%;
+}
+
+img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  height: 6rem;
+  width: 6rem;
+}
+
 .boxed-view {
   align-items: center;
-  background: #dddddd;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -21796,6 +21864,7 @@ body.md-skin {
 
 .boxed-view__box {
   background-color: white;
+  border: 1px solid #dddddd;
   padding: 2.4rem;
   text-align: center;
   width: 24rem;

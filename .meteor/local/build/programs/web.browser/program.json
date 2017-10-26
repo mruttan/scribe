@@ -33,9 +33,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/modules.js?hash=d4f0c88063013c3c2ea0a1a25e1b10f7324f9066",
-      "size": 6301304,
-      "hash": "d4f0c88063013c3c2ea0a1a25e1b10f7324f9066"
+      "url": "/packages/modules.js?hash=6aaa19ff54f9ddfc22c4c51d729cde8e2532e90c",
+      "size": 9333876,
+      "hash": "6aaa19ff54f9ddfc22c4c51d729cde8e2532e90c"
     },
     {
       "path": "packages/jquery.js",
@@ -669,11 +669,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=bae2e33b102de95706b2177d56c66bfcc1db8f93",
+      "url": "/app/app.js?hash=f84bd110c2152bf08e79146417ea4552ff7e2e34",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/bae2e33b102de95706b2177d56c66bfcc1db8f93.map",
-      "size": 73090,
-      "hash": "bae2e33b102de95706b2177d56c66bfcc1db8f93"
+      "sourceMapUrl": "/app/f84bd110c2152bf08e79146417ea4552ff7e2e34.map",
+      "size": 213398,
+      "hash": "f84bd110c2152bf08e79146417ea4552ff7e2e34"
     },
     {
       "path": "packages/service-configuration.js",
@@ -689,11 +689,11 @@
       "where": "client",
       "type": "css",
       "cacheable": true,
-      "url": "/merged-stylesheets.css?hash=c2fd5c3c58b5a7f87843b57f98f2d6b1f9df4e99",
+      "url": "/merged-stylesheets.css?hash=bc2008e9a1c3e460cc1740b4e40472f095722a9d",
       "sourceMap": "merged-stylesheets.css.map",
-      "sourceMapUrl": "/c2fd5c3c58b5a7f87843b57f98f2d6b1f9df4e99.map",
-      "size": 366923,
-      "hash": "c2fd5c3c58b5a7f87843b57f98f2d6b1f9df4e99"
+      "sourceMapUrl": "/bc2008e9a1c3e460cc1740b4e40472f095722a9d.map",
+      "size": 367824,
+      "hash": "bc2008e9a1c3e460cc1740b4e40472f095722a9d"
     },
     {
       "path": "packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
@@ -795,10 +795,37 @@
       "hash": "cd12480a6626f5faf89ddd7ebb00edf64059498d"
     },
     {
+      "path": "app/images/bars.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/bars.svg",
+      "size": 1103,
+      "hash": "1a181e1e91fe4e2e6805a0e13ad098bff6fe4c60"
+    },
+    {
+      "path": "app/images/favicon.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/favicon.png",
+      "size": 1686,
+      "hash": "0e6e6b3c39038b7cb12f2dcb887b8ba12ab45346"
+    },
+    {
+      "path": "app/images/x.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/x.svg",
+      "size": 891,
+      "hash": "98acf2f88645ab0d10e5b5b56ef964b889a4413e"
+    },
+    {
       "path": "head.html",
       "where": "internal",
       "type": "head",
-      "hash": "5047ac21632c34f9fb1746fa1804d0af687f89f9"
+      "hash": "4aeaca31acda93137d9ddb30911fe663eea23ec9"
     }
   ]
 }
