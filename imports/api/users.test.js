@@ -33,7 +33,21 @@ if (Meteor.isServer) {
 			}).toThrow();
 		});
 
-		it('should update user');
+		it('should update user', function () {
+			const testUser = {
+				_id: 'testid',
+				emails: [
+					{
+						address: 'Test@example.com'
+					}
+				]
+			};
+			console.log(testUser);
+			// Meteor.server.method_handlers['userUpdate'].apply({ 'updated@test.com' });
+			console.log(testUser);
+
+		});
+
 		it('should throw error if extra updates provided');
 		it('should not update user if not correct user');
 		it('should not update user if unauthenticated');

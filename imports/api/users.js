@@ -23,13 +23,21 @@ if (Meteor.isServer) {
   });
 }
 
-Meteor.methods({ 'userUpdate': (email) => {
-	Meteor.users.update({
-		_id: this.props.userId()
-	},
-	{
-		$set: {
-			'emails.0.address': email
-		}
-	});
-}})
+// Meteor.methods({
+// 	'userUpdate': function(email) {
+// 		Meteor.users.update({
+// 			_id: this.props.userId()
+// 		},
+// 		{
+// 			$set: {
+// 			'emails.0.address': email
+// 		}
+// 	}
+// });
+
+Meteor.methods({
+  'userUpdate'(userId, email) {
+    if(this.userId)
+      Meteor.users.update(this.userId, {$set : { 'emails.0.address': email }});
+  }
+});

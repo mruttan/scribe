@@ -12,7 +12,9 @@ export class UserEdit extends React.Component {
 		};
 	}
 	onClick() {
-		this.props.users.remove(this.props.userId());
+		// preventDefault();
+		//
+		// this.props.users.remove(this.props.userId());
 	}
 	onSubmit(e) {
 		e.preventDefault();
