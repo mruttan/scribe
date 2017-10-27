@@ -11,17 +11,26 @@ export class UserEdit extends React.Component {
 			error: ''
 		};
 	}
+	onClick() {
+		this.props.users.remove(this.props.userId());
+	}
 	onSubmit(e) {
 		e.preventDefault();
 
 		let email = this.refs.email.value.trim();
-		let password = this.refs.password.value.trim();
 
-		this.props.loginWithPassword({email}, password, (err) => {
-			if (err) {
-				this.setState({error: 'Unable to login. Check email and password.'});
-			} else {
-				this.setState({error: ''});
+		console.log(this.props.users);
+		console.log(this.props.user());
+		console.log(this.props.userId());
+
+		Meteor.users.allow({ update: () => true });
+		this.props.users.update({
+			_id: this.props.userId()
+		},
+		{
+			$set: {
+				'emails.0.address': email
+				// 'profile.email': email  - able to set the profile field, not the users email
 			}
 		});
 	}
@@ -35,11 +44,11 @@ export class UserEdit extends React.Component {
 
 					<form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
 						<input type="email" ref="email" name="email" placeholder="Email"/>
-						<input type="password" ref="password" name="password" placeholder="Password"/>
 						<button className="btn btn-primary">Edit</button>
 					</form>
 
 					<Link to="/dashboard">Back to Dashboard</Link>
+					<button onClick={this.onClick()} className="btn btn-primary">Delete Account</button>
 				</div>
 			</div>
 		);
@@ -47,11 +56,15 @@ export class UserEdit extends React.Component {
 }
 
 UserEdit.propTypes = {
-	loginWithPassword: PropTypes.func.isRequired
+	user: PropTypes.func.isRequired,
+	userId: PropTypes.func.isRequired,
+	users: PropTypes.object.isRequired
 };
 
 export default createContainer(() => {
 	return {
-		loginWithPassword: Meteor.loginWithPassword
+		user: Meteor.user,
+		userId: Meteor.userId,
+		users: Meteor.users
 	};
 }, UserEdit);

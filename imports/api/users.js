@@ -18,4 +18,18 @@ export const validateNewUser = (user) => {
 
 if (Meteor.isServer) {
 	Accounts.validateNewUser(validateNewUser);
+	Meteor.publish('users', function () {
+    return Meteor.users.find({ userId: this.userId });
+  });
 }
+
+Meteor.methods({ 'userUpdate': (email) => {
+	Meteor.users.update({
+		_id: this.props.userId()
+	},
+	{
+		$set: {
+			'emails.0.address': email
+		}
+	});
+}})
