@@ -11,11 +11,17 @@ export class UserEdit extends React.Component {
 			error: ''
 		};
 	}
-	onClick() {
-		// preventDefault();
-		//
-		// this.props.users.remove(this.props.userId());
+
+	// Deleting Accounts works!
+	onConfirm(e) {
+		e.preventDefault();
+
+		let confirm = this.refs.confirm.value.trim();
+		if (confirm === 'confirm') {
+			this.props.users.remove(this.props.userId());
+		}
 	}
+	// Editing Accounts works!
 	onSubmit(e) {
 		e.preventDefault();
 
@@ -25,14 +31,13 @@ export class UserEdit extends React.Component {
 		console.log(this.props.user());
 		console.log(this.props.userId());
 
-		Meteor.users.allow({ update: () => true });
+
 		this.props.users.update({
 			_id: this.props.userId()
 		},
 		{
 			$set: {
 				'emails.0.address': email
-				// 'profile.email': email  - able to set the profile field, not the users email
 			}
 		});
 	}
@@ -50,7 +55,10 @@ export class UserEdit extends React.Component {
 					</form>
 
 					<Link to="/dashboard">Back to Dashboard</Link>
-					<button onClick={this.onClick()} className="btn btn-primary">Delete Account</button>
+					<form onSubmit={this.onConfirm.bind(this)} className="boxed-view__form">
+						<input type="confirm" ref="confirm" name="confirm" placeholder="confirm"/>
+						<button className="btn btn-primary">Delete Account</button>
+					</form>
 				</div>
 			</div>
 		);

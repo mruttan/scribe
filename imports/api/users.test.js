@@ -5,17 +5,28 @@ import { validateNewUser } from './users';
 
 if (Meteor.isServer) {
 	describe('users', function() {
-
+		const testUser = {
+			_id: 'testid',
+			emails: [
+				{
+					address: 'test@example.com'
+				}
+			]
+		};
+		beforeEach(function() {
+			Meteor.users.remove({});
+			validateNewUser(testUser);
+		});
 		it('should allow valid email address', function() {
-			const testUser = {
-				emails: [
-					{
-						address: 'Test@example.com'
-					}
-				]
-			};
-			const res = validateNewUser(testUser);
+			// const testUser = {
+			// 	emails: [
+			// 		{
+			// 			address: 'Test@example.com'
+			// 		}
+			// 	]
+			// };
 
+			const res = validateNewUser(testUser);
 			expect(res).toBe(true);
 		});
 
@@ -33,19 +44,27 @@ if (Meteor.isServer) {
 			}).toThrow();
 		});
 
-		it('should update user', function () {
-			const testUser = {
-				_id: 'testid',
-				emails: [
-					{
-						address: 'Test@example.com'
-					}
-				]
-			};
-			console.log(testUser);
-			// Meteor.server.method_handlers['userUpdate'].apply({ 'updated@test.com' });
-			console.log(testUser);
+		it('should delete a user', function () {
+			Meteor.users.remove({});
+			expect(testUser).toNotExist();
+		});
 
+
+		it('should update user', function () {
+			// const updatedUser = {
+			// 	_id: 'testid',
+			// 	emails: [
+			// 		{
+			// 			address: 'updated@updated.com'
+			// 		}
+			// 	]
+			// };
+			// console.log(updatedUser);
+			//
+			//
+			// Meteor.users.update({_id: 'testid'}, {$set: { 'emails.0.address': 'updated@updated.com'}});
+			// console.log(updatedUser);
+			//don't understand why this doesn't work
 		});
 
 		it('should throw error if extra updates provided');
