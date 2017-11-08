@@ -45,7 +45,10 @@ if (Meteor.isServer) {
 		});
 
 		it('should delete a user', function () {
-			Meteor.users.remove({});
+			// why doesnt this work?
+			Meteor.server.method_handlers['users.remove']
+			//
+			// Meteor.users.remove(testUser._id);
 			expect(testUser).toNotExist();
 		});
 

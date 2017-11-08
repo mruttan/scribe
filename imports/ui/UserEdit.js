@@ -26,7 +26,7 @@ export class UserEdit extends React.Component {
 		e.preventDefault();
 
 		let email = this.refs.email.value.trim();
-
+		console.log(this.props)
 		console.log(this.props.users);
 		console.log(this.props.user());
 		console.log(this.props.userId());
